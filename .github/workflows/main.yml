@@ -1,5 +1,5 @@
 
-name: A Practice Node.js app Build and deploy to Azure Web Application - sampleangularnew
+name: Practice Node.js app Build and deploy to Azure Web Application - sampleangularnew
 
 on:
   push:
