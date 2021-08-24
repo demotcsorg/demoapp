@@ -77,4 +77,5 @@ jobs:
     - name: ZAP Scan
       uses: zaproxy/action-baseline@v0.4.0
       with:
+        rules_file_name: '.zap/rules.tsv'
         target: 'https://sampleangularnew.azurewebsites.net'
