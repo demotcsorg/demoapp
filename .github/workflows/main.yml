@@ -1,0 +1,35 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [8, 10, 12]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+  
+  second_job:
+    needs: first_job
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Dependent Job!
+
